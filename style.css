@@ -1,35 +1,3 @@
-/* Cybersecurity Grid Background */
-
-.cyber-grid{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-
-background-image:
-linear-gradient(rgba(0,255,166,0.08) 1px, transparent 1px),
-linear-gradient(90deg, rgba(0,255,166,0.08) 1px, transparent 1px);
-
-background-size:40px 40px;
-
-z-index:-1;
-
-animation:gridMove 25s linear infinite;
-
-}
-
-@keyframes gridMove{
-
-0%{
-transform:translateY(0);
-}
-
-100%{
-transform:translateY(40px);
-}
-
-}
 :root{
 
 --bg:#0f172a;
@@ -56,93 +24,126 @@ line-height:1.6;
 
 }
 
+/* Cyber Grid */
 
+.cyber-grid{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background-image:
+linear-gradient(rgba(0,255,166,0.08) 1px, transparent 1px),
+linear-gradient(90deg, rgba(0,255,166,0.08) 1px, transparent 1px);
+background-size:40px 40px;
+z-index:-1;
+animation:gridMove 25s linear infinite;
+}
 
-/* header */
+@keyframes gridMove{
+0%{transform:translateY(0);}
+100%{transform:translateY(40px);}
+}
+
+/* Cursor Glow */
+
+.cursor-glow{
+position:fixed;
+width:35px;
+height:35px;
+background:rgba(0,255,166,0.6);
+border-radius:50%;
+filter:blur(15px);
+pointer-events:none;
+z-index:999;
+}
+
+/* Header */
 
 header{
-
 text-align:center;
 padding:70px 20px;
-
+background:radial-gradient(circle at top,
+rgba(0,255,166,0.15),
+transparent 70%);
 }
 
 header h1{
-
 font-size:4rem;
 margin-bottom:10px;
-
 }
 
 .tagline{
-
 color:var(--primary);
 font-size:1.3rem;
 margin-bottom:30px;
-
 }
 
-nav a{
+/* Navbar */
 
+nav a{
 margin:0 18px;
 text-decoration:none;
 color:var(--text);
 font-weight:600;
-transition:0.3s;
 position:relative;
+}
 
+nav a::after{
+content:'';
+position:absolute;
+width:0%;
+height:2px;
+background:var(--primary);
+left:0;
+bottom:-5px;
+transition:0.3s;
 }
 
 nav a:hover{
-
 color:var(--primary);
-
 }
 
+nav a:hover::after{
+width:100%;
+}
 
-
-/* sections */
+/* Sections */
 
 section{
+padding:60px 20px;
+max-width:1000px;
+margin:auto;
+margin-bottom:60px;
 
-padding:90px 20px;
+background:rgba(15,23,42,0.6);
+backdrop-filter:blur(6px);
+border-radius:12px;
 text-align:center;
-
 }
 
 h2{
-
 font-size:2.6rem;
 margin-bottom:40px;
-
 }
 
-
-
-/* profile */
+/* Profile */
 
 .profile{
-
 width:170px;
 border-radius:100px;
 margin-bottom:25px;
 border:3px solid var(--primary);
 transition:0.6s;
-
 }
 
 .profile:hover{
-
 transform:rotate(360deg) scale(1.05);
-
 }
 
-
-
-/* button */
+/* Button */
 
 .btn{
-
 display:inline-block;
 margin-top:25px;
 padding:12px 22px;
@@ -151,191 +152,116 @@ color:black;
 text-decoration:none;
 border-radius:30px;
 font-weight:bold;
-transition:0.3s;
-
 }
 
 .btn:hover{
-
-transform:scale(1.1);
 box-shadow:0 0 15px var(--primary);
-
 }
 
-
-
-/* skills */
+/* Skills */
 
 .skill-grid{
-
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
 gap:35px;
 max-width:800px;
 margin:auto;
-
 }
 
 .skill{
-
 font-size:3rem;
 color:var(--secondary);
 transition:0.3s;
-
 }
 
 .skill span{
-
 display:block;
 font-size:1rem;
 margin-top:8px;
-
 }
 
 .skill:hover{
-
 transform:translateY(-10px);
 color:var(--primary);
 text-shadow:0 0 20px var(--primary);
-
 }
 
 .skill.small{
-
 font-size:2.2rem;
-
 }
 
-
-
-/* cpp lua */
+/* Languages */
 
 .cpp{
-
 font-size:1.4rem;
 font-weight:bold;
 color:#f59e0b;
-
 }
 
 .lua{
-
 font-size:1.4rem;
 font-weight:bold;
 color:#60a5fa;
-
 }
 
-
-
-/* projects */
+/* Projects */
 
 .projects{
-
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
 gap:35px;
 max-width:1000px;
 margin:auto;
-
 }
 
 .card{
-
 background:var(--card);
 padding:28px;
 border-radius:15px;
 transition:0.4s;
-
 }
 
 .card:hover{
-
 transform:translateY(-10px);
 box-shadow:0 0 25px rgba(0,255,166,0.4);
-
-}
-
-.card h3{
-
-margin-bottom:10px;
-
-}
-
-.card p{
-
-font-size:0.95rem;
-margin-bottom:15px;
-
-}
-
-.card a{
-
-color:var(--secondary);
-text-decoration:none;
-font-weight:600;
-
-}
-
-.card a:hover{
-
-color:var(--primary);
-
 }
 
 .tech{
-
 font-size:0.85rem;
 color:#94a3b8;
-
 }
 
-
-
-/* education */
+/* Education */
 
 .edu{
-
 margin:20px;
 font-size:1.1rem;
-
 }
 
-
-
-/* contact */
+/* Contact */
 
 .contact-links{
-
 display:flex;
 justify-content:center;
 gap:40px;
 flex-wrap:wrap;
-
 }
 
 .contact-links a{
-
 text-decoration:none;
 color:var(--text);
 font-size:1.2rem;
-transition:0.3s;
-
 }
 
 .contact-links a:hover{
-
 color:var(--primary);
 transform:scale(1.05);
-
 }
 
-
+/* Footer */
 
 footer{
-
 text-align:center;
 padding:40px;
 color:#64748b;
-
 }
